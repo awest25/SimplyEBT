@@ -1,6 +1,5 @@
 import logo from './logo.svg';
 import './App.css';
-import SimpleTable from './components/Table.js';
 
 function App() {
   return (
