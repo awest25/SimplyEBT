@@ -6,9 +6,10 @@ function AppWrapper(props) {
     return (
         <div>
             <Header/>
-            <p>Body</p>
-            <p>Footer</p>
+            {props.children}
+            {/* <Footer/> */}
         </div>
+
     )
 }
 
