@@ -15,27 +15,29 @@ const useStyles = makeStyles({
 export default function SimpleTable() {
   const classes = useStyles();
   const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  const temp_foods = ['Burger', 'Pizza', 'Rice', 'Salad', 'Sandwich', 'Soup', 'Taco']
   const temp_spending = [10, 20, 30, 40, 50, 60, 70];
 
   return (
     <Table className={classes.root}>
       <TableHead>
         <TableRow>
-          <TableCell>Day</TableCell>
           {Array(7).fill(null).map((_, col) => (
             <TableCell key={col}>{days[col]}</TableCell>
           ))}
         </TableRow>
       </TableHead>
       <TableBody>
-        {Array(2).fill(null).map((_, row) => (
-          <TableRow key={row}>
-            <TableCell>{row + 1}</TableCell>
+         <TableRow key={1}>
             {Array(7).fill(null).map((_, col) => (
-              <TableCell key={col}>{`\$ ${temp_spending[col]}`}</TableCell>
+              <TableCell key={col}>{`${temp_foods[col]}`}</TableCell>
             ))}
           </TableRow>
-        ))}
+          <TableRow key={2}>
+            {Array(7).fill(null).map((_, col) => (
+              <TableCell key={col}>{`$${temp_spending[col]}`}</TableCell>
+            ))}
+          </TableRow>
       </TableBody>
     </Table>
   );
