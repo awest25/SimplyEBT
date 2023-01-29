@@ -12,11 +12,11 @@ const useStyles = makeStyles({
   },
 });
 
-export default function SimpleTable() {
+export default function SimpleTable(props) {
   const classes = useStyles();
   const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
   const temp_foods = ['Burger', 'Pizza', 'Rice', 'Salad', 'Sandwich', 'Soup', 'Taco']
-  const temp_spending = [10, 20, 30, 40, 50, 60, 70];
+  const temp_spending = [10, 20, 30, 40, 50, 60, props.tableValue];
 
   return (
     <Table className={classes.root}>
@@ -28,17 +28,18 @@ export default function SimpleTable() {
         </TableRow>
       </TableHead>
       <TableBody>
-         <TableRow key={1}>
-            {Array(7).fill(null).map((_, col) => (
-              <TableCell key={col}>{`${temp_foods[col]}`}</TableCell>
-            ))}
-          </TableRow>
-          <TableRow key={2}>
-            {Array(7).fill(null).map((_, col) => (
-              <TableCell key={col}>{`$${temp_spending[col]}`}</TableCell>
-            ))}
-          </TableRow>
+      <TableRow>
+         {temp_foods.map((food, index) => {
+            return <TableCell key={index}>{food}</TableCell>
+         })}
+         </TableRow>
+      <TableRow>
+         {temp_spending.map((spending, index) => {
+            return <TableCell key={index + spending}>{spending}</TableCell>
+         })}
+         </TableRow>
       </TableBody>
     </Table>
+    
   );
 }
