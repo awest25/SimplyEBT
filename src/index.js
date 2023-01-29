@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import Dashboard from './routes/Dashboard';
+import SetMealPlan from './routes/SetMealPlan';
 import reportWebVitals from './reportWebVitals';
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getDatabase } from "firebase/database";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-/* FIREBASE */
+/* Firebase */
 // Firebase Configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCjfmlpRKj-_n-dQYALSzVYhY6KdgdHptM",
@@ -36,11 +38,23 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
+/* React Router */
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Dashboard/>
+  },
+  {
+    path: "set-meal-plan",
+    element: <SetMealPlan />,
+  },
+]);
+
 /* React */
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 

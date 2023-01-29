@@ -1,12 +1,12 @@
 import React from "react";
 import AppWrapper from "../components/AppWrapper";
 
-function Dashboard(){
+function SetMealPlan(){
     return (
         <AppWrapper>
-            <p>Dashboard</p>
+            <p>Set meal plan</p>
         </AppWrapper>
-    );
+    )
 }
 
-export default Dashboard;
+export default SetMealPlan
