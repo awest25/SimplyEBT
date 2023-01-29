@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import { Box } from "@mui/system";
+import Footer from "./Footer"
 
 function AppWrapper(props) {
 
@@ -10,10 +11,9 @@ function AppWrapper(props) {
                 <Box sx={{ marginX: 30, marginTop:5}}>
                     {props.children}
                 </Box>
-            {/* <Footer/> */}
+            <Footer/> 
         </div>
-
-    )
+    );
 }
 
 export default AppWrapper
