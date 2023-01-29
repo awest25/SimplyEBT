@@ -15,22 +15,8 @@ export default function CalendarInfo(props) {
                     <h1>{'EBT Balance: $' + String(balance)}</h1>
                     <h2>{'Weekly Budget: $' + String(weeklyBudget)}</h2>
                 </Grid>
-                {/* <Grid item xs={4}>
-                    {/* <Button variant="contained" color="primary" onClick={() => {
-                        setInputVisible(!inputVisible);
-                        setInputValue('');
-                        // setTableValue(inputValue);
-                    }}>
-                        {'Enter Grocery Total'}
-                    </Button> */}
-                    {/* {inputVisible &&
-                        <>
-                            <TextField label="Input field" margin="normal" fullWidth onChange={(event) => setInputValue(event.target.value)} />
-                            <Button label="Submit" variant="contained" color="primary" onClick={(event) => { event.preventDefault(); setGroceryTotal(inputValue); }}>Submit</Button></>
-                    } */}
-                {/* </Grid> */}
             </Grid>
-            <SimpleTable tableValue={11} updateDate={(col) => props.updateDate(col)} />
+            <SimpleTable tableValue={11} updateDate={(col) => props.updateDate(col)} db={props.db} date={props.date} week={props.week} />
         </div>
     );
 }
