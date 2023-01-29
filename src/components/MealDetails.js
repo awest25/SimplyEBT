@@ -112,7 +112,7 @@ function MealDetails(props) {
   const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
   return (
-    <Grid container className="Overall-Box" sx={{ flexGrow: 1 }}>
+    <Grid className="Overall-Box" sx={{ flexGrow: 1 }}>
       <Grid container item className="Text-Icon" xs={7} direction="row">
         <h1 className="style">
           {days[props.selectedDate]} Details  <ModeEditOutlineIcon className="icon" variant="outlined" onClick={() => window.location.href = "/set-meal-plan"}></ModeEditOutlineIcon></h1>

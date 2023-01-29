@@ -26,7 +26,7 @@ export default function SimpleTable(props) {
   return (
     <div className="Entire-Table">
     <Table className={classes.root} >
-      <TableHead sx={{backgroundColor: "#f2f1f2"}}>
+      <TableHead className="Top-Bar">
         <TableRow>
           {Array(7).fill(null).map((_, col) => (
             <TableCell key={col} onClick={() => props.updateDate(col)}>{days[col]}</TableCell>
