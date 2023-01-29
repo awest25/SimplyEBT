@@ -32,20 +32,20 @@ const StyledFab = styled(Fab)({
 
 export default function BottomAppBar() {
   return (
-    <React.Fragment>
-      <CssBaseline />
-      <Paper square sx={{ pb: '50px' }}>
-        <Typography variant="h5" gutterBottom component="div" sx={{ p: 2, pb: 0 }}>
-          Inbox
-        </Typography>
+    // <React.Fragment>
+    //   <CssBaseline />
+    //   <Paper square sx={{ pb: '50px' }}>
+    //     <Typography variant="h5" gutterBottom component="div" sx={{ p: 2, pb: 0 }}>
+    //       Inbox
+    //     </Typography>
           
-      </Paper>
+    //   </Paper>
       <AppBar position="fixed" color="primary" sx={{ top: 'auto', bottom: 0 }}>
         <Toolbar>
           <Box sx={{ flexGrow: 1 }} />
           <h1>EBTea</h1>
         </Toolbar>
       </AppBar>
-    </React.Fragment>
+    // </React.Fragment>
   );
 }
