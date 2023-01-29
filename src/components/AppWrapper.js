@@ -1,7 +1,8 @@
 import React from "react";
 import Header from "./Header";
 import { Box } from "@mui/system";
-import Footer from "./Footer"
+import Footer from "./Footer";
+import Shopping from "../styles/Shopping2.png";
 
 function AppWrapper(props) {
 
