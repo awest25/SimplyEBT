@@ -1,8 +1,9 @@
 import React from "react";
 import AppWrapper from "../components/AppWrapper";
-import { Grid, TextField, Box, Tabs, Tab, Typography, Button } from "@mui/material";
+import { TextField, Box, Tabs, Tab, Typography, Button, Stack } from "@mui/material";
 import PropTypes from 'prop-types';
 import "../styles/SetMealPlan.css"
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -37,27 +38,6 @@ function a11yProps(index) {
     };
 }
 
-function Form(props) {
-    return (
-        <Grid container spacing={3}>
-            <Grid item>
-                <TextField
-                    id={"meal-name-" + props.index}
-                    label="Meal Name"
-                />
-            </Grid>
-            <Grid item>
-                <TextField
-                    id={"ingredients-" + props.index}
-                    label="Ingredients"
-                    multiline
-                    rows={5}
-                />
-            </Grid>
-        </Grid>
-    );
-}
-
 function SetMealPlan() {
     const [value, setValue] = React.useState(0);
     const handleChange = (event, newValue) => { setValue(newValue); };
@@ -67,14 +47,29 @@ function SetMealPlan() {
     const tabPanels = indexes.map((i) =>
         <TabPanel value={value} index={i}>
             <h2>{days[i]}</h2>
-            <Form />
-            {i != 6 ? 
-                <Button variant="contained">Continue</Button> :
-                <Button variant="contained">Submit</Button>}
+            <Stack spacing={2}>
+                <TextField
+                    id={"meal-name-" + i}
+                    label="Meal Name"
+                />
+                <TextField
+                    id={"ingredients-" + i}
+                    label="Ingredients"
+                    multiline
+                    rows={5}
+                />
+                <Box>
+                    {i != 6 ?
+                        <Button variant="outlined" onClick={() => { setValue(i + 1) }}>Continue<KeyboardArrowRightIcon/></Button> :
+                        <Button variant="contained">Submit</Button>
+                    }
+                </Box>
+
+            </Stack>
         </TabPanel>
     );
 
-    const tabs = indexes.map((i) => 
+    const tabs = indexes.map((i) =>
         <Tab label={days[i]} {...a11yProps(i)} />
     );
 
