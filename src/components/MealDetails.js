@@ -3,6 +3,7 @@ import { Box, Grid } from "@mui/material";
 import ModeEditOutlineIcon from '@mui/icons-material/ModeEditOutline';
 import "../styles/MealDetails.css";
 import { red } from '@mui/material/colors';
+import { Button, TextField } from '@material-ui/core';
 
 function MealDetails(props) {
   const dates = ["01-22-2023-0", "01-23-2023-1", "01-24-2023-2", "01-25-2023-3", "01-26-2023-4", "01-27-2023-5", "01-28-2023-6"];
@@ -106,23 +107,27 @@ function MealDetails(props) {
       }
     }
   };
+  const [inputValue, setInputValue] = useState('');
+  const [groceryTotal, setGroceryTotal] = useState(0);
 
   return (
     // <Box sx={{border:1}}>
-    <Grid className="Overall-Box" direction="row" spacing={10} sx={{ flexGrow: 1, borderColor:red}}>
+    <Grid className="Overall-Box" direction="row" spacing={10} sx={{ flexGrow: 1, borderColor: red }}>
       <Grid container className="Text-Icon" xs={4}>
-          <Grid item className="Text-Only" xs={10} spacing={2}>
-            <h1 className="style">Meal Details</h1>
-            <h2>Breakfast</h2>
-              <p>{mealData[dates[props.selectedDate]].breakfast.ingr}</p>
-            <h3>Lunch</h3>
-              <p>{mealData[dates[props.selectedDate]].lunch.ingr}</p>
-            <h4>Dinner</h4>
-              <p>{mealData[dates[props.selectedDate]].dinner.ingr}</p>
-          </Grid>
-          <Grid item className="Button-Outline" xs={2}>
-            <ModeEditOutlineIcon variant="outlined" onClick={() => window.location.href = "/set-meal-plan"}></ModeEditOutlineIcon>
-          </Grid>
+        <Grid item className="Text-Only" xs={10} spacing={2}>
+          <h1 className="style">Meal Details</h1>
+          <h2>Breakfast</h2>
+          <p>{mealData[dates[props.selectedDate]].breakfast.ingr}</p>
+          <h3>Lunch</h3>
+          <p>{mealData[dates[props.selectedDate]].lunch.ingr}</p>
+          <h4>Dinner</h4>
+          <p>{mealData[dates[props.selectedDate]].dinner.ingr}</p>
+          <TextField label="Money Spent" margin="normal" fullWidth onChange={(event) => setInputValue(event.target.value)} />
+          <Button label="Submit" variant="contained" color="primary" onClick={(event) => { event.preventDefault(); setGroceryTotal(inputValue); }}>Submit</Button>
+        </Grid>
+        <Grid item className="Button-Outline" xs={2}>
+          <ModeEditOutlineIcon variant="outlined" onClick={() => window.location.href = "/set-meal-plan"}></ModeEditOutlineIcon>
+        </Grid>
       </Grid>
       <Grid container className="School" xs={8}></Grid>
     </Grid>
