@@ -63,20 +63,24 @@ function SetMealPlan() {
     // tabs
     const [value, setValue] = useState(0);
     const handleChange = (event, newValue) => { setValue(newValue); };
-    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Wednesday", "Friday", "Saturday"];
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const indexes = [0, 1, 2, 3, 4, 5, 6];
-
-    // form variables
-    const [mealTitle, setMealTitle] = useState("");
-    const [ingr, setIngr] = useState([]);
-    const [week, setWeek] = useState(Array(7).fill(""));
 
     // COMMENTED FOR TESTING PURPOSES
     // const today_raw = new Date();
     const today_raw = new Date("2023-01-27"); // testing only
     const todayStr = getDateString(today_raw);
+    const todayNum = todayStr.charAt(11); // get day # from today
+    var weekStart = new Date(today_raw);
+    weekStart.setDate(weekStart.getDate() - todayNum);
+    const w = getWeek(weekStart);
 
-    // TODO: rerendering error lmao
+    // form variables
+    const [mealTitle, setMealTitle] = useState("");
+    const [ingr, setIngr] = useState([]);
+    const [week, setWeek] = useState(w);
+    console.log(week);
+
     const handleSubmit = (option, i) => {
         if (mealTitle === "" || ingr === []) {
             console.log("Form not completed");
@@ -87,7 +91,8 @@ function SetMealPlan() {
                 "meal_name": mealTitle,
                 "ingr": ingr
             }
-            updates["/data/" + "Monday"] = data;
+            updates["/data/" + week[i]] = data;
+            console.log(data);
         }
         update(ref(db), updates).catch((err) => {
             console.log(err)
@@ -100,28 +105,6 @@ function SetMealPlan() {
         }
     };
 
-    // get weekly data
-    const firebase = ref(db, "data");
-    useEffect(() => {
-        const fetchData = async () => {
-            get(child(firebase, todayStr)).then((snapshot) => {
-                if (snapshot.exists()) {
-                    const todayNum = todayStr.charAt(11); // get day # from today
-                    var weekStart = new Date(today_raw);
-                    weekStart.setDate(weekStart.getDate() - todayNum);
-                    const week = getWeek(weekStart);
-                    // setWeek(getWeek(weekStart)); // TODO: can't set state inside useEffect
-                    console.log(week);
-                } else {
-                    console.log("No data available: " + todayStr);
-                }
-            }).catch((err) => {
-                console.log(err);
-            });
-        }
-        fetchData();
-    }, []);
-
     const tabPanels = indexes.map((i) =>
         <TabPanel value={value} index={i}>
             <h2>{days[i]}</h2>
@@ -129,18 +112,18 @@ function SetMealPlan() {
                 <TextField
                     id={"meal-name-" + i}
                     label="Meal Name"
-                    onChange={(event) => { setMealTitle(event.target.value); console.log(mealTitle) }}
+                    onChange={(event) => setMealTitle(event.target.value)}
                 />
                 <TextField
                     id={"ingredients-" + i}
                     label="Ingredients"
                     multiline
                     rows={5}
-                    onChange={(event) => { setIngr(event.target.value.split("\n")); console.log(ingr) }}
+                    onChange={(event) => setIngr(event.target.value.split("\n"))}
                 />
                 <Box>
                     {i !== 6 ?
-                        <Button variant="outlined" onClick={() => handleSubmit(0, i)}>Continue<KeyboardArrowRightIcon /></Button> :
+                        <Button variant="outlined" onClick={() => handleSubmit(0, i)}>Save & Continue<KeyboardArrowRightIcon /></Button> :
                         <Button variant="contained" onClick={() => handleSubmit(1, i)}>Submit</Button>
                     }
                 </Box>
@@ -150,7 +133,7 @@ function SetMealPlan() {
     );
 
     const tabs = indexes.map((i) =>
-        <Tab label={days[i]} {...a11yProps(i)} />
+        <Tab disabled label={days[i]} {...a11yProps(i)} />
     );
 
     return (
