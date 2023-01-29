@@ -1,11 +1,13 @@
 import { React, useState, useEffect } from "react";
 import AppWrapper from "../components/AppWrapper";
-import { TextField, Box, Tabs, Tab, Typography, Button, Stack } from "@mui/material";
+import { Grid, TextField, Box, Tabs, Tab, Typography, Button, Stack } from "@mui/material";
 import PropTypes from 'prop-types';
 import "../styles/SetMealPlan.css"
+import "../styles/MealDetails.css"
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { db } from "../index.js";
 import { ref, get, child, remove, query, orderByChild, equalTo, update } from "firebase/database";
+import ModeEditOutlineIcon from '@mui/icons-material/ModeEditOutline';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -136,6 +138,7 @@ function SetMealPlan() {
         <Tab disabled label={days[i]} {...a11yProps(i)} />
     );
 
+
     return (
         <AppWrapper>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -144,8 +147,9 @@ function SetMealPlan() {
                 </Tabs>
             </Box>
             {tabPanels}
+            {tabPanels}
         </AppWrapper>
     )
 }
 
-export default SetMealPlan
+export default SetMealPlan;
