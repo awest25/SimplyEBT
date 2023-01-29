@@ -115,9 +115,9 @@ function MealDetails(props) {
             <h1 className="style">Meal Details</h1>
             <h2>Breakfast</h2>
               <p>{mealData[dates[props.selectedDate]].breakfast.ingr}</p>
-            <h3>Lunch</h3>
+            <h2>Lunch</h2>
               <p>{mealData[dates[props.selectedDate]].lunch.ingr}</p>
-            <h4>Dinner</h4>
+            <h2>Dinner</h2>
               <p>{mealData[dates[props.selectedDate]].dinner.ingr}</p>
           </Grid>
           <Grid item className="Button-Outline" xs={2}>
