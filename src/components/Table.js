@@ -8,6 +8,9 @@ import TableRow from '@material-ui/core/TableRow';
 import "../styles/Table.css";
 
 const useStyles = makeStyles({
+  head: {
+    color: red,
+  },
   root: {
     width: '100%',
   },
@@ -43,6 +46,5 @@ export default function SimpleTable(props) {
       </TableBody>
     </Table>
     </div>
-    
   );
 }

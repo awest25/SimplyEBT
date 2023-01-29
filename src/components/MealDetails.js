@@ -11,127 +11,134 @@ function MealDetails(props) {
     "01-22-2023-0": {
       "breakfast": {
         "ingr": "Eggo waffles, syrup",
-        "meal-name": "Waffles"
+        "meal_name": "Waffles"
       },
       "dinner": {
         "ingr": "whole wheat spaghetti, red sauce, parmesean",
-        "meal-name": "Spaghetti"
+        "meal_name": "Spaghetti"
       },
       "lunch": {
         "ingr": "whole wheat bread, mozzarella, tomatoes, basil, balsamic",
-        "meal-name": "Caprese Sandwich"
+        "meal_name": "Caprese Sandwich"
       }
     },
     "01-23-2023-1": {
       "breakfast": {
         "ingr": "FUCK ME Eggo waffles, syrup",
-        "meal-name": "Waffles"
+        "meal_name": "Waffles"
       },
       "dinner": {
         "ingr": "whole wheat spaghetti, red sauce, parmesean",
-        "meal-name": "Spaghetti"
+        "meal_name": "Spaghetti"
       },
       "lunch": {
         "ingr": "whole wheat bread, mozzarella, tomatoes, basil, balsamic",
-        "meal-name": "Caprese Sandwich"
+        "meal_name": "Caprese Sandwich"
       }
     },
     "01-24-2023-2": {
       "breakfast": {
         "ingr": "Eggo waffles, syrup",
-        "meal-name": "Waffles"
+        "meal_name": "Waffles"
       },
       "dinner": {
         "ingr": "whole wheat spaghetti, red sauce, parmesean",
-        "meal-name": "Spaghetti"
+        "meal_name": "Spaghetti"
       },
       "lunch": {
         "ingr": "whole wheat bread, mozzarella, tomatoes, basil, balsamic",
-        "meal-name": "Caprese Sandwich"
+        "meal_name": "Caprese Sandwich"
       }
     },
     "01-25-2023-3": {
       "breakfast": {
         "ingr": "Eggo waffles, syrup",
-        "meal-name": "Waffles"
+        "meal_name": "Waffles"
       },
       "dinner": {
         "ingr": "whole wheat spaghetti, red sauce, parmesean",
-        "meal-name": "Spaghetti"
+        "meal_name": "Spaghetti"
       },
       "lunch": {
         "ingr": "whole wheat bread, mozzarella, tomatoes, basil, balsamic",
-        "meal-name": "Caprese Sandwich"
+        "meal_name": "Caprese Sandwich"
       }
     },
     "01-26-2023-4": {
       "breakfast": {
         "ingr": "Eggo waffles, syrup",
-        "meal-name": "Waffles"
+        "meal_name": "Waffles"
       },
       "dinner": {
         "ingr": "whole wheat spaghetti, red sauce, parmesean",
-        "meal-name": "Spaghetti"
+        "meal_name": "Spaghetti"
       },
       "lunch": {
         "ingr": "whole wheat bread, mozzarella, tomatoes, basil, balsamic",
-        "meal-name": "Caprese Sandwich"
+        "meal_name": "Caprese Sandwich"
       }
     },
     "01-27-2023-5": {
       "breakfast": {
         "ingr": "Eggo waffles, syrup",
-        "meal-name": "Waffles"
+        "meal_name": "Waffles"
       },
       "dinner": {
         "ingr": "whole wheat spaghetti, red sauce, parmesean",
-        "meal-name": "Spaghetti"
+        "meal_name": "Spaghetti"
       },
       "lunch": {
         "ingr": "whole wheat bread, mozzarella, tomatoes, basil, balsamic",
-        "meal-name": "Caprese Sandwich"
+        "meal_name": "Caprese Sandwich"
       }
     },
     "01-28-2023-6": {
       "breakfast": {
         "ingr": "Eggo waffles, syrup",
-        "meal-name": "Waffles"
+        "meal_name": "Waffles"
       },
       "dinner": {
         "ingr": "whole wheat spaghetti, red sauce, parmesean",
-        "meal-name": "Spaghetti"
+        "meal_name": "Spaghetti"
       },
       "lunch": {
         "ingr": "whole wheat bread, mozzarella, tomatoes, basil, balsamic",
-        "meal-name": "Caprese Sandwich"
+        "meal_name": "Caprese Sandwich"
       }
     }
   };
   const [inputValue, setInputValue] = useState('');
   const [groceryTotal, setGroceryTotal] = useState(0);
+  const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
   return (
-    // <Box sx={{border:1}}>
-    <Grid container className="Overall-Box" direction="row" spacing={10} sx={{ flexGrow: 1, borderColor: red }}>
-      <Grid container className="Text-Icon" xs={4}>
-        <Grid item className="Text-Only" xs={10} spacing={2}>
-          <h1 className="style">Meal Details</h1>
-          <h2>Breakfast</h2>
-          <p>{mealData[dates[props.selectedDate]].breakfast.ingr}</p>
-          <h2>Lunch</h2>
-          <p>{mealData[dates[props.selectedDate]].lunch.ingr}</p>
-          <h2>Dinner</h2>
-          <p>{mealData[dates[props.selectedDate]].dinner.ingr}</p>
-          <TextField label="Money Spent" margin="normal" fullWidth onChange={(event) => setInputValue(event.target.value)} />
-          <Button label="Submit" variant="contained" color="primary" onClick={(event) => { event.preventDefault(); setGroceryTotal(inputValue); }}>Submit</Button>
-        </Grid>
-        <Grid item className="Button-Outline" xs={2}>
-          <ModeEditOutlineIcon variant="outlined" onClick={() => window.location.href = "/set-meal-plan"}></ModeEditOutlineIcon>
+    <Grid container className="Overall-Box" sx={{ flexGrow: 1 }}>
+      <Grid container item className="Text-Icon" xs={7} direction="row">
+        <h1 className="style">
+          {days[props.selectedDate]} Details  <ModeEditOutlineIcon className="icon" variant="outlined" onClick={() => window.location.href = "/set-meal-plan"}></ModeEditOutlineIcon></h1>
+        <Grid item className="Text-Only">
+          <h3>Breakfast</h3>
+          <p>{mealData[dates[props.selectedDate]].breakfast.meal_name}</p>
+          <ul>
+            <li>{mealData[dates[props.selectedDate]].breakfast.ingr}</li>
+          </ul>
+          <h3>Lunch</h3>
+          <p>{mealData[dates[props.selectedDate]].lunch.meal_name}</p>
+          <ul>
+            <li>{mealData[dates[props.selectedDate]].lunch.ingr}</li>
+          </ul>
+          <h3>Dinner</h3>
+          <p>{mealData[dates[props.selectedDate]].dinner.meal_name}</p>
+          <ul>
+            <li>{mealData[dates[props.selectedDate]].dinner.ingr}</li>
+          </ul>
+          <Grid container direction="column" alignItems="center">
+            <TextField label="Money Spent" margin="normal" fullWidth onChange={(event) => setInputValue(event.target.value)} />
+            <Button label="Submit" variant="contained" color="primary" onClick={(event) => { event.preventDefault(); setGroceryTotal(inputValue); }}>Submit</Button>
+          </Grid>
         </Grid>
       </Grid>
-      <Grid container className="School" xs={7}></Grid>
     </Grid>
-    // </Box>
   );
 }
 
