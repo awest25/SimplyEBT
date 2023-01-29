@@ -5,6 +5,7 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import "../styles/Table.css";
 
 const useStyles = makeStyles({
   root: {
@@ -19,8 +20,9 @@ export default function SimpleTable(props) {
   const temp_spending = [10, 20, 30, 40, 50, 60, 70];
 
   return (
-    <Table className={classes.root}>
-      <TableHead>
+    <div className="Entire-Table">
+    <Table className={classes.root} >
+      <TableHead sx={{backgroundColor: "#f2f1f2"}}>
         <TableRow>
           {Array(7).fill(null).map((_, col) => (
             <TableCell key={col} onClick={() => props.updateDate(col)}>{days[col]}</TableCell>
@@ -28,18 +30,19 @@ export default function SimpleTable(props) {
         </TableRow>
       </TableHead>
       <TableBody>
-      <TableRow>
+        <TableRow className="Middle">
          {temp_foods.map((food, index) => {
             return <TableCell key={index}>{food}</TableCell>
          })}
-         </TableRow>
-      <TableRow>
+        </TableRow>
+        <TableRow className="bottom">
          {temp_spending.map((spending, index) => {
             return <TableCell key={index + spending}>{"$"+spending}</TableCell>
          })}
          </TableRow>
       </TableBody>
     </Table>
+    </div>
     
   );
 }

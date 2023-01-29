@@ -10,7 +10,7 @@
 
 .Footer {
     background-color: #2196f3;
-    position: fixed;
+    position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;

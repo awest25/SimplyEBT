@@ -112,7 +112,7 @@ function MealDetails(props) {
   return (
     // <Box sx={{border:1}}>
     <Grid className="Overall-Box" direction="row" spacing={10} sx={{ flexGrow: 1, borderColor: red }}>
-      <Grid container className="Text-Icon" xs={4}>
+      <Grid container className="Text-Icon" xs={5}>
           <Grid item className="Text-Only" xs={10} spacing={2}>
             <h1 className="style">Meal Details</h1>
             <h2>Breakfast</h2>
@@ -126,7 +126,7 @@ function MealDetails(props) {
             <ModeEditOutlineIcon variant="outlined" onClick={() => window.location.href = "/set-meal-plan"}></ModeEditOutlineIcon>
           </Grid>
       </Grid>
-      <Grid container className="School" xs={8}></Grid>
+      <Grid container className="School" xs={7}></Grid>
     </Grid>
     // </Box>
   );
