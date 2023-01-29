@@ -50,10 +50,9 @@ function getDateString(date_raw) {
 }
 
 function getWeek(start) {
-    var d = new Date (start);
+    var d = new Date(start);
     var output = [];
-    // console.log(d);
-    for (let i = 0; i<6; i++) {
+    for (let i = 0; i < 7; i++) {
         output.push(getDateString(d));
         d.setDate(d.getDate() + 1); // increment date
     }
@@ -67,36 +66,61 @@ function SetMealPlan() {
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Wednesday", "Friday", "Saturday"];
     const indexes = [0, 1, 2, 3, 4, 5, 6];
 
+    // form variables
+    const [mealTitle, setMealTitle] = useState("");
+    const [ingr, setIngr] = useState([]);
+    const [week, setWeek] = useState(Array(7).fill(""));
+
     // COMMENTED FOR TESTING PURPOSES
     // const today_raw = new Date();
     const today_raw = new Date("2023-01-27"); // testing only
     const todayStr = getDateString(today_raw);
-    console.log(todayStr);
+
+    // TODO: rerendering error lmao
+    const handleSubmit = (option, i) => {
+        // if (mealTitle === "" || ingr === []) {
+        //     console.log("Form not completed");
+        // } else {
+        //     // update for each date
+        //     var updates = {};
+        //     let data = {
+        //         "meal-title": mealTitle,
+        //         "ingr": ingr
+        //     }
+        //     updates["/data/" + week[i]] = data;
+        // }
+        // // update(ref(db), updates).catch((err) => {
+        // //     console.log(err)
+        // // });
+
+        // if (option == 0) {
+        //     setValue(i + 1)
+        // } else {
+        //     // window.location.href = "/"
+        // }
+    };
 
     // get weekly data
     const firebase = ref(db, "data");
-    const [weekData, setWeekData] = useState({});
     useEffect(() => {
-        get(child(firebase, todayStr)).then((snapshot) => {
-            if (snapshot.exists()) {
-                const todayNum = todayStr.charAt(11); // get day # from today
-                var weekStart = new Date (today_raw);
-                weekStart.setDate(weekStart.getDate() - todayNum);
-                var weekEnd = new Date (weekStart);
-                weekEnd.setDate(weekEnd.getDate() + 6);
-
-                const week = getWeek(weekStart, weekEnd);
-                // console.log(weekStart);
-                // console.log(weekEnd);
-                console.log(week);
-            } else {
-                console.log("No data available: " + todayStr);
-            }
-        }).catch((err) => {
-            console.log(err);
-        })
-    }, [firebase, todayStr, today_raw]);
-
+        const fetchData = async () => {
+            get(child(firebase, todayStr)).then((snapshot) => {
+                if (snapshot.exists()) {
+                    const todayNum = todayStr.charAt(11); // get day # from today
+                    var weekStart = new Date(today_raw);
+                    weekStart.setDate(weekStart.getDate() - todayNum);
+                    const week = getWeek(weekStart);
+                    // setWeek(getWeek(weekStart)); // TODO: can't set state inside useEffect
+                    console.log(week);
+                } else {
+                    console.log("No data available: " + todayStr);
+                }
+            }).catch((err) => {
+                console.log(err);
+            });
+        }
+        fetchData();
+    }, []);
 
     const tabPanels = indexes.map((i) =>
         <TabPanel value={value} index={i}>
@@ -105,17 +129,19 @@ function SetMealPlan() {
                 <TextField
                     id={"meal-name-" + i}
                     label="Meal Name"
+                    onChange={(event) => { setMealTitle(event.target.value); console.log(mealTitle) }}
                 />
                 <TextField
                     id={"ingredients-" + i}
                     label="Ingredients"
                     multiline
                     rows={5}
+                    onChange={(event) => { setIngr(event.target.value.split("\n")); console.log(ingr) }}
                 />
                 <Box>
                     {i !== 6 ?
-                        <Button variant="outlined" onClick={() => { setValue(i + 1) }}>Continue<KeyboardArrowRightIcon /></Button> :
-                        <Button variant="contained">Submit</Button>
+                        <Button variant="outlined" onClick={handleSubmit(0, i)}>Continue<KeyboardArrowRightIcon /></Button> :
+                        <Button variant="contained" onClick={handleSubmit(1, i)}>Submit</Button>
                     }
                 </Box>
 
