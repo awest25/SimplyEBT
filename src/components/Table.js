@@ -16,7 +16,7 @@ export default function SimpleTable(props) {
   const classes = useStyles();
   const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
   const temp_foods = ['Burger', 'Pizza', 'Rice', 'Salad', 'Sandwich', 'Soup', 'Taco']
-  const temp_spending = [10, 20, 30, 40, 50, 60, props.tableValue];
+  const temp_spending = [10, 20, 30, 40, 50, 60, 70];
 
   return (
     <Table className={classes.root}>

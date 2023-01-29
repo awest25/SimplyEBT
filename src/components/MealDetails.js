@@ -106,10 +106,12 @@ function MealDetails(props) {
       }
     }
   };
+  const [inputValue, setInputValue] = useState('');
+  const [groceryTotal, setGroceryTotal] = useState(0);
 
   return (
     // <Box sx={{border:1}}>
-    <Grid className="Overall-Box" direction="row" spacing={10} sx={{ flexGrow: 1, borderColor:red}}>
+    <Grid className="Overall-Box" direction="row" spacing={10} sx={{ flexGrow: 1, borderColor: red }}>
       <Grid container className="Text-Icon" xs={4}>
           <Grid item className="Text-Only" xs={10} spacing={2}>
             <h1 className="style">Meal Details</h1>
