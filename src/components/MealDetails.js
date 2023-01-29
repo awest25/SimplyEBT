@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Stack, Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import ModeEditOutlineIcon from '@mui/icons-material/ModeEditOutline';
-import { Grid } from "@mui/material";
 import "../styles/MealDetails.css";
 import { red } from '@mui/material/colors';
 
@@ -110,25 +109,24 @@ function MealDetails(props) {
 
   return (
     // <Box sx={{border:1}}>
-    <Stack className="Meal-Details-Grid" direction="row" spacing={10} sx={{borderColor:red}}>
-      
-      <Stack spacing={2}>
-        <h1 className="style">Meal Details</h1>
-        <h2>Breakfast</h2>
-        <p>{mealData[dates[props.selectedDate]].breakfast.ingr}</p>
-        <h3>Lunch</h3>
-        <p>{mealData[dates[props.selectedDate]].lunch.ingr}</p>
-        <h4>Dinner</h4>
-        <p>{mealData[dates[props.selectedDate]].dinner.ingr}</p>
-
-      </Stack>
-      <Box className="Button-Outline">
-        
-        <ModeEditOutlineIcon variant="outlined"></ModeEditOutlineIcon>
-      </Box>
-    </Stack>
+    <Grid className="Overall-Box" direction="row" spacing={10} sx={{ flexGrow: 1, borderColor:red}}>
+      <Grid container className="Text-Icon" xs={4}>
+          <Grid item className="Text-Only" xs={10} spacing={2}>
+            <h1 className="style">Meal Details</h1>
+            <h2>Breakfast</h2>
+              <p>{mealData[dates[props.selectedDate]].breakfast.ingr}</p>
+            <h3>Lunch</h3>
+              <p>{mealData[dates[props.selectedDate]].lunch.ingr}</p>
+            <h4>Dinner</h4>
+              <p>{mealData[dates[props.selectedDate]].dinner.ingr}</p>
+          </Grid>
+          <Grid item className="Button-Outline" xs={2}>
+            <ModeEditOutlineIcon variant="outlined"></ModeEditOutlineIcon>
+          </Grid>
+      </Grid>
+      <Grid container className="School" xs={8}></Grid>
+    </Grid>
     // </Box>
-    
   );
 }
 

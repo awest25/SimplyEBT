@@ -4,4 +4,21 @@
     justify-content: left;
 }
 
+.Overall-Box {
+    justify-content: left;
+    padding: 1.5em 1.5em 1.5em 0em;
+}
+
+.Text-Icon {
+    background-color: #f2f1f2;
+    padding: 1em;
+    border: 5px;
+    border-color: black;
+    border-radius: 10px; 
+    box-shadow: 5px 5px 2.5px rgb(124, 124, 124);
+}
+
+.Text-Only {
+    background-color: #f2f1f2;
+}
 
