@@ -10,8 +10,7 @@ function AppWrapper(props) {
             {props.children}
             <Footer/> 
         </div>
-
-    )
+    );
 }
 
 export default AppWrapper
