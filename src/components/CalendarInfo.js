@@ -21,12 +21,12 @@ export default function CalendarInfo() {
                         setInputValue('');
                         // setTableValue(inputValue);
                     }}>
-                        {inputVisible ? 'Submit' : 'Enter Grocery Total'}
+                        {'Enter Grocery Total'}
                     </Button>
-                    {inputVisible && 
-<>
-                        <TextField label="Input field" margin="normal" fullWidth onChange={(event) => setInputValue(event.target.value)} />
-                        <Button variant="contained" color="primary" onClick={(event) => {event.preventDefault(); setGroceryTotal(inputValue);}} /></>
+                    {inputVisible &&
+                        <>
+                            <TextField label="Input field" margin="normal" fullWidth onChange={(event) => setInputValue(event.target.value)} />
+                            <Button label="Submit" variant="contained" color="primary" onClick={(event) => { event.preventDefault(); setGroceryTotal(inputValue); }}>Submit</Button></>
                     }
                 </Grid>
             </Grid>
