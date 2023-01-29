@@ -6,6 +6,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import "../styles/Table.css";
+import { red } from '@mui/material/colors';
 
 const useStyles = makeStyles({
   head: {
