@@ -110,8 +110,8 @@ function MealDetails(props) {
 
   return (
     // <Box sx={{border:1}}>
-    <Stack className="Meal-Details-Grid" direction="row" spacing={10} sx={{borderColor:red}}>
-      
+    <Stack className="Meal-Details-Grid" direction="row" spacing={10} sx={{ borderColor: red }}>
+
       <Stack spacing={2}>
         <h1 className="style">Meal Details</h1>
         <h2>Breakfast</h2>
@@ -120,15 +120,14 @@ function MealDetails(props) {
         <p>{mealData[dates[props.selectedDate]].lunch.ingr}</p>
         <h4>Dinner</h4>
         <p>{mealData[dates[props.selectedDate]].dinner.ingr}</p>
-
       </Stack>
+
       <Box className="Button-Outline">
-        
-        <ModeEditOutlineIcon variant="outlined"></ModeEditOutlineIcon>
+        <ModeEditOutlineIcon variant="outlined" onClick={() => window.location.href = "/set-meal-plan"}></ModeEditOutlineIcon>
       </Box>
     </Stack>
     // </Box>
-    
+
   );
 }
 
