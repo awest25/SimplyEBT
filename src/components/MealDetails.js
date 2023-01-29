@@ -121,7 +121,7 @@ function MealDetails(props) {
               <p>{mealData[dates[props.selectedDate]].dinner.ingr}</p>
           </Grid>
           <Grid item className="Button-Outline" xs={2}>
-            <ModeEditOutlineIcon variant="outlined"></ModeEditOutlineIcon>
+            <ModeEditOutlineIcon variant="outlined" onClick={() => window.location.href = "/set-meal-plan"}></ModeEditOutlineIcon>
           </Grid>
       </Grid>
       <Grid container className="School" xs={8}></Grid>
