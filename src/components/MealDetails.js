@@ -1,11 +1,14 @@
 import * as React from 'react';
-import { Stack, Button, Container } from "@mui/material";
+import { Stack, Box } from "@mui/material";
+import ModeEditOutlineIcon from '@mui/icons-material/ModeEditOutline';
 import "../styles/MealDetails.css";
 import { red } from '@mui/material/colors';
 
 function MealDetails() {
   return (
-    <Stack direction="row" spacing={10} sx={{border:red}}>
+    // <Box sx={{border:1}}>
+    <Stack className="Meal-Details-Grid" direction="row" spacing={10} sx={{borderColor:red}}>
+      
       <Stack spacing={2}>
         <h1 className="style">Meal Details</h1>
         <h2>Breakfast</h2>
@@ -15,8 +18,13 @@ function MealDetails() {
         <h4>Dinner</h4>
         <p>dinner meal</p>
       </Stack>
-    <Button variant="outlined">Edit</Button>
+      <Box className="Button-Outline">
+        
+        <ModeEditOutlineIcon variant="outlined"></ModeEditOutlineIcon>
+      </Box>
     </Stack>
+    // </Box>
+    
   );
 }
 
