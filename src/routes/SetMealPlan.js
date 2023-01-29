@@ -78,26 +78,26 @@ function SetMealPlan() {
 
     // TODO: rerendering error lmao
     const handleSubmit = (option, i) => {
-        // if (mealTitle === "" || ingr === []) {
-        //     console.log("Form not completed");
-        // } else {
-        //     // update for each date
-        //     var updates = {};
-        //     let data = {
-        //         "meal-title": mealTitle,
-        //         "ingr": ingr
-        //     }
-        //     updates["/data/" + week[i]] = data;
-        // }
-        // // update(ref(db), updates).catch((err) => {
-        // //     console.log(err)
-        // // });
+        if (mealTitle === "" || ingr === []) {
+            console.log("Form not completed");
+        } else {
+            // update for each date
+            var updates = {};
+            let data = {
+                "meal_name": mealTitle,
+                "ingr": ingr
+            }
+            updates["/data/" + "Monday"] = data;
+        }
+        update(ref(db), updates).catch((err) => {
+            console.log(err)
+        });
 
-        // if (option == 0) {
-        //     setValue(i + 1)
-        // } else {
-        //     // window.location.href = "/"
-        // }
+        if (option == 0) {
+            setValue(i + 1)
+        } else {
+            window.location.href = "/"
+        }
     };
 
     // get weekly data
@@ -140,8 +140,8 @@ function SetMealPlan() {
                 />
                 <Box>
                     {i !== 6 ?
-                        <Button variant="outlined" onClick={handleSubmit(0, i)}>Continue<KeyboardArrowRightIcon /></Button> :
-                        <Button variant="contained" onClick={handleSubmit(1, i)}>Submit</Button>
+                        <Button variant="outlined" onClick={() => handleSubmit(0, i)}>Continue<KeyboardArrowRightIcon /></Button> :
+                        <Button variant="contained" onClick={() => handleSubmit(1, i)}>Submit</Button>
                     }
                 </Box>
 
