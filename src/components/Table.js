@@ -5,8 +5,12 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import { red } from '@mui/material/colors';
 
 const useStyles = makeStyles({
+  head: {
+    color: red,
+  },
   root: {
     width: '100%',
   },
@@ -28,18 +32,18 @@ export default function SimpleTable(props) {
         </TableRow>
       </TableHead>
       <TableBody>
-      <TableRow>
-         {temp_foods.map((food, index) => {
+        <TableRow>
+          {temp_foods.map((food, index) => {
             return <TableCell key={index}>{food}</TableCell>
-         })}
-         </TableRow>
-      <TableRow>
-         {temp_spending.map((spending, index) => {
-            return <TableCell key={index + spending}>{"$"+spending}</TableCell>
-         })}
-         </TableRow>
+          })}
+        </TableRow>
+        <TableRow>
+          {temp_spending.map((spending, index) => {
+            return <TableCell key={index + spending}>{"$" + spending}</TableCell>
+          })}
+        </TableRow>
       </TableBody>
     </Table>
-    
+
   );
 }

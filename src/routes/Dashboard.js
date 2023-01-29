@@ -2,15 +2,17 @@ import React from "react";
 import AppWrapper from "../components/AppWrapper";
 import CalendarInfo from "../components/CalendarInfo";
 import MealDetails from "../components/MealDetails";
+import { Grid } from "@mui/material";
 
-function Dashboard(){
+function Dashboard() {
     const [selectedDate, setSelectedDate] = React.useState(0);
     console.log(selectedDate)
     return (
         <AppWrapper>
-            <p>Dashboard</p>
-            <CalendarInfo updateDate={(col) => setSelectedDate(col)}/>
-            <MealDetails selectedDate={selectedDate}/>
+            <CalendarInfo updateDate={(col) => setSelectedDate(col)} />
+            <Grid container justifyContent="center" sx={{paddingTop: 2}}>
+                <MealDetails selectedDate={selectedDate} />
+            </Grid>
         </AppWrapper>
     );
 }
