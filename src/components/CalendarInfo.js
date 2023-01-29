@@ -12,8 +12,8 @@ export default function CalendarInfo(props) {
         <div>
             <Grid container>
                 <Grid item xs={8}>
-                    <h1>{'EBT Balance: $' + String(balance)}</h1>
-                    <h2>{'Weekly Budget: $' + String(weeklyBudget)}</h2>
+                    <h1>{'Balance: $' + String(balance)}</h1>
+                    <h1>{'Weekly Budget: $' + String(weeklyBudget)}</h1>
                 </Grid>
                 {/* <Grid item xs={4}>
                     {/* <Button variant="contained" color="primary" onClick={() => {
