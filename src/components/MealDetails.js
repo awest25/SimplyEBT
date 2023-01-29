@@ -112,22 +112,7 @@ function MealDetails(props) {
 
   return (
     // <Box sx={{border:1}}>
-    <Grid className="Overall-Box" direction="row" spacing={10} sx={{ flexGrow: 1, borderColor: red }}>
-<<<<<<< HEAD
-      <Grid container className="Text-Icon" xs={5}>
-          <Grid item className="Text-Only" xs={10} spacing={2}>
-            <h1 className="style">Meal Details</h1>
-            <h2>Breakfast</h2>
-              <p>{mealData[dates[props.selectedDate]].breakfast.ingr}</p>
-            <h2>Lunch</h2>
-              <p>{mealData[dates[props.selectedDate]].lunch.ingr}</p>
-            <h2>Dinner</h2>
-              <p>{mealData[dates[props.selectedDate]].dinner.ingr}</p>
-          </Grid>
-          <Grid item className="Button-Outline" xs={2}>
-            <ModeEditOutlineIcon variant="outlined" onClick={() => window.location.href = "/set-meal-plan"}></ModeEditOutlineIcon>
-          </Grid>
-=======
+    <Grid container className="Overall-Box" direction="row" spacing={10} sx={{ flexGrow: 1, borderColor: red }}>
       <Grid container className="Text-Icon" xs={4}>
         <Grid item className="Text-Only" xs={10} spacing={2}>
           <h1 className="style">Meal Details</h1>
@@ -143,7 +128,6 @@ function MealDetails(props) {
         <Grid item className="Button-Outline" xs={2}>
           <ModeEditOutlineIcon variant="outlined" onClick={() => window.location.href = "/set-meal-plan"}></ModeEditOutlineIcon>
         </Grid>
->>>>>>> b5cd478cdb12df04883c1a7e9cf71de0ad0fb471
       </Grid>
       <Grid container className="School" xs={7}></Grid>
     </Grid>
