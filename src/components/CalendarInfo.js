@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import SimpleTable from './Table.js';
 import { Grid, Button, TextField } from '@material-ui/core';
 
-export default function CalendarInfo() {
+export default function CalendarInfo(props) {
     const balance = 280;
     const weeklyBudget = 70;
     const [inputVisible, setInputVisible] = useState(false);
@@ -30,7 +30,7 @@ export default function CalendarInfo() {
                     }
                 </Grid>
             </Grid>
-            <SimpleTable tableValue={groceryTotal} />
+            <SimpleTable tableValue={groceryTotal} updateDate={(col) => props.updateDate(col)} />
         </div>
     );
 }

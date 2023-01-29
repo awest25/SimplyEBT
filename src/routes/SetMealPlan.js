@@ -70,7 +70,7 @@ function SetMealPlan() {
                     rows={5}
                 />
                 <Box>
-                    {i != 6 ?
+                    {i !== 6 ?
                         <Button variant="outlined" onClick={() => { setValue(i + 1) }}>Continue<KeyboardArrowRightIcon /></Button> :
                         <Button variant="contained">Submit</Button>
                     }

@@ -23,7 +23,7 @@ export default function SimpleTable(props) {
       <TableHead>
         <TableRow>
           {Array(7).fill(null).map((_, col) => (
-            <TableCell key={col}>{days[col]}</TableCell>
+            <TableCell key={col} onClick={() => props.updateDate(col)}>{days[col]}</TableCell>
           ))}
         </TableRow>
       </TableHead>
