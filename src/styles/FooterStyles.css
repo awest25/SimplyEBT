@@ -1,23 +1,18 @@
-.Entire-Footer {
+.body {
     display: flex;
-    justify-content: space-around;
-    left: 0;
-    bottom: 0;
+    flex-direction: column;
+}
+.Entire-Footer {
     width: 100%;
+    justify-content: space-around;
     color: #FFFFFF;
     font-family: "Gill Sans", sans-serif;
 }
 
 .Footer {
     background-color: #2196f3;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    
 }
 
 .individual-Titles {
     font-size: 1em;
-    
 }
