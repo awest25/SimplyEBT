@@ -115,7 +115,7 @@ function MealDetails(props) {
     <Grid className="Overall-Box" sx={{ flexGrow: 1 }}>
       <Grid container item className="Text-Icon" xs={7} direction="row">
         <h1 className="style">
-          {days[props.selectedDate]} Details  <ModeEditOutlineIcon className="icon" variant="outlined" onClick={() => window.location.href = "/set-meal-plan"}></ModeEditOutlineIcon></h1>
+          {days[props.selectedDate]} Details  <ModeEditOutlineIcon sx={{cusor:"pointer"}} className="icon" variant="outlined" onClick={() => window.location.href = "/set-meal-plan"}></ModeEditOutlineIcon></h1>
         <Grid item className="Text-Only">
           <h3>Breakfast</h3>
           <p>{mealData[dates[props.selectedDate]].breakfast.meal_name}</p>

@@ -1,11 +1,13 @@
-.Table {
-    background-color: #f2f1f2;
-    text-align: center;
+.tableHead {
+    background-color: #FFFFFF;
+    cursor: pointer;
 }
 
+.selected {
+    background-color: #2196f3;
+    cursor: pointer;
+}
 
-
-.Top-Bar {
-    border-radius: 5px; 
-    
+.tableHead:hover {
+    background-color: #d9d9d9;
 }

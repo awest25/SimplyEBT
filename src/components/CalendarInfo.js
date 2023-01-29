@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SimpleTable from './Table.js';
-import { Grid, Button, TextField } from '@material-ui/core';
+import { Grid, Chip } from '@material-ui/core';
 
 export default function CalendarInfo(props) {
     const balance = 280;
@@ -12,7 +12,7 @@ export default function CalendarInfo(props) {
         <div>
             <Grid container>
                 <Grid item xs={8}>
-                    <h1>{'EBT Balance: $' + String(balance)}</h1>
+                    <h1>Balance: $ <Chip label={String(balance)}/></h1>
                     <h2>{'Weekly Budget: $' + String(weeklyBudget)}</h2>
                 </Grid>
             </Grid>

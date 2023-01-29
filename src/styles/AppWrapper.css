@@ -1,0 +1,15 @@
+.appWrapper {
+    position: relative;
+    min-height: 100vh;
+}
+
+.contentWrapper {
+    padding-bottom: 1rem;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 1rem;
+}

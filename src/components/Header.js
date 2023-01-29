@@ -14,7 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import EmojiFoodBeverageIcon from '@mui/icons-material/EmojiFoodBeverage';
 
-const pages = ['Dashboard'];
+const pages = ['Dashboard', 'SNAP Store Locator'];
 const settings = ['Account', 'Logout'];
 
 function Header() {

@@ -2,17 +2,19 @@ import React from "react";
 import Header from "./Header";
 import { Box } from "@mui/system";
 import Footer from "./Footer";
-import Shopping from "../styles/Shopping2.png";
+import "../styles/AppWrapper.css";
+import background from "../styles/Sh11.jpg";
 
 function AppWrapper(props) {
 
     return (
-        <div>
+        <div className="appWrapper" 
+            style={props.dashboard == "true" ? { backgroundImage: `url(${background})`, backgroundSize:"contain" } : {}}>
             <Header />
-                <Box sx={{ marginX: 30, marginTop:5}}>
+                <Box sx={{ marginX: 30, marginTop:5}} className="contentWrapper">
                     {props.children}
                 </Box>
-            <Footer/> 
+            <Footer className="footer"/> 
         </div>
     );
 }

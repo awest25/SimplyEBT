@@ -1,4 +1,4 @@
-import React from 'react';
+import {React, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -37,22 +37,27 @@ function getWeek(start) {
 }
 
 export default function SimpleTable(props) {
-  const classes = useStyles();
-  const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   const temp_foods = ['Burger', 'Pizza', 'Rice', 'Salad', 'Sandwich', 'Soup', 'Taco']
   const temp_spending = [10, 20, 30, 40, 50, 60, 70];
   const database = props.db;
-  console.log(database[props.date]);
-  console.log(props.week);
-  console.log(database);
+  const [selected, setSelected] = useState(0);
+  console.log(selected)
+
+  function handleClick(index) {
+    setSelected(index);
+    props.updateDate(index);
+  }
 
   return (
-    <div className="Entire-Table">
-    <Table className={classes.root} >
-      <TableHead className="Top-Bar">
+    <Table>
+      <TableHead>
         <TableRow>
           {Array(7).fill(null).map((_, col) => (
-            <TableCell key={col} onClick={() => props.updateDate(col)}>{days[col]}</TableCell>
+            <TableCell 
+            className={col == selected ? "selected" : "tableHead"}
+            key={col} 
+            onClick={() => handleClick(col)}>{days[col]}</TableCell>
           ))}
         </TableRow>
       </TableHead>
@@ -69,6 +74,5 @@ export default function SimpleTable(props) {
          </TableRow>
       </TableBody>
     </Table>
-    </div>
   );
 }

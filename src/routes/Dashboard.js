@@ -70,7 +70,7 @@ function Dashboard() {
     console.log(temp_database);
     return (
         <AppWrapper>
-            {loading ? <p>Loading...</p> : <CalendarInfo updateDate={(col) => setSelectedDate(col)} db={database} date={todayStr} week={w} />}
+            {loading ?  <p>Loading...</p> : <CalendarInfo updateDate={(col) => setSelectedDate(col)} db={database} date={todayStr} week={w} />}
             <Grid container justifyContent="center" sx={{ paddingTop: 2 }}>
                 <MealDetails selectedDate={selectedDate} />
             </Grid>

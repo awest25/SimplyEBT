@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Box, Grid } from "@mui/material";
-import "../styles/FooterStyles.css";
+import "../styles/Footer.css";
 import EmojiFoodBeverageIcon from '@mui/icons-material/EmojiFoodBeverage';
 
 export default function BottomAppBar() {
