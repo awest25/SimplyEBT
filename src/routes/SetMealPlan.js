@@ -147,7 +147,6 @@ function SetMealPlan() {
                 </Tabs>
             </Box>
             {tabPanels}
-            {tabPanels}
         </AppWrapper>
     )
 }

@@ -69,7 +69,7 @@ export default function SimpleTable(props) {
         </TableRow>
         <TableRow className="bottom">
          {temp_spending.map((spending, index) => {
-            return <TableCell key={index + spending}>{"$"+database[props.week[index]]["cost"]}</TableCell>
+            return <TableCell key={index + spending}>${(database[props.week[index]]["cost"] == undefined) ? 0 : database[props.week[index]]["cost"]}</TableCell>
          })}
          </TableRow>
       </TableBody>
