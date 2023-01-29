@@ -35,7 +35,7 @@ export default function SimpleTable(props) {
          </TableRow>
       <TableRow>
          {temp_spending.map((spending, index) => {
-            return <TableCell key={index + spending}>{spending}</TableCell>
+            return <TableCell key={index + spending}>{"$"+spending}</TableCell>
          })}
          </TableRow>
       </TableBody>
