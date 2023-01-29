@@ -9,6 +9,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getDatabase } from "firebase/database";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+
 /* Firebase */
 // Firebase Configuration
 const firebaseConfig = {
