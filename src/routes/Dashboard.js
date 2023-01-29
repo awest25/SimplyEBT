@@ -8,7 +8,7 @@ function Dashboard() {
     const [selectedDate, setSelectedDate] = React.useState(0);
     console.log(selectedDate)
     return (
-        <AppWrapper>
+        <AppWrapper dashboard="true">
             <CalendarInfo updateDate={(col) => setSelectedDate(col)} />
             <Grid container justifyContent="center" sx={{paddingTop: 2}}>
                 <MealDetails selectedDate={selectedDate} />

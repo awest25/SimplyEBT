@@ -8,7 +8,8 @@ import background from "../styles/Sh11.jpg";
 function AppWrapper(props) {
 
     return (
-        <div className="appWrapper" style={{ backgroundImage: `url(${background})`, backgroundSize:"contain" }}>
+        <div className="appWrapper" 
+            style={props.dashboard == "true" ? { backgroundImage: `url(${background})`, backgroundSize:"contain" } : {}}>
             <Header />
                 <Box sx={{ marginX: 30, marginTop:5}} className="contentWrapper">
                     {props.children}
