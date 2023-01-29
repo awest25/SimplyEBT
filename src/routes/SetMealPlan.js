@@ -4,6 +4,8 @@ import { TextField, Box, Tabs, Tab, Typography, Button, Stack } from "@mui/mater
 import PropTypes from 'prop-types';
 import "../styles/SetMealPlan.css"
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import { db } from "../index.js";
+import { ref, push, update, getDatabase } from "firebase/database";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -44,6 +46,15 @@ function SetMealPlan() {
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Wednesday", "Friday", "Saturday"];
     const indexes = [0, 1, 2, 3, 4, 5, 6];
 
+    // get today's date
+    const today_raw = new Date();
+    const dd = String(today_raw.getDate()).padStart(2, '0');
+    const mm = String(today_raw.getMonth() + 1).padStart(2, '0'); //January is 0!
+    const yyyy = today_raw.getFullYear();
+    const day = today_raw.getDay();
+    const today = mm + '-' + dd + '-' + yyyy + '-' + day;
+    console.log(today);
+
     const tabPanels = indexes.map((i) =>
         <TabPanel value={value} index={i}>
             <h2>{days[i]}</h2>
@@ -60,7 +71,7 @@ function SetMealPlan() {
                 />
                 <Box>
                     {i != 6 ?
-                        <Button variant="outlined" onClick={() => { setValue(i + 1) }}>Continue<KeyboardArrowRightIcon/></Button> :
+                        <Button variant="outlined" onClick={() => { setValue(i + 1) }}>Continue<KeyboardArrowRightIcon /></Button> :
                         <Button variant="contained">Submit</Button>
                     }
                 </Box>
