@@ -108,8 +108,30 @@ function MealDetails(props) {
     }
   };
   const [inputValue, setInputValue] = useState('');
-  const [groceryTotal, setGroceryTotal] = useState(0);
+  const [groceryTotal, setGroceryTotal] = useState(location?.state?.data.cost != null ? location?.state?.data.cost : 0);
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setGroceryTotal(inputValue);
+
+    let currentMealName = "";
+    let currentIngr = [];
+    if (location?.state?.data != null){
+      currentMealName = location?.state?.data.meal_name;
+      currentIngr = location?.state?.data.ingr;
+    }
+    var updates = {};
+    let data = {
+      "meal_name": currentMealName,
+      "ingr": currentMealName,
+      "cost": groceryTotal
+    }
+    updates["/data/" + week[i]] = data;
+    console.log(data);
+    update(ref(db), updates).catch((err) => {
+      console.log(err)
+    });
+  }
   return (
     // <Box sx={{border:1}}>
     <Grid className="Overall-Box" direction="row" spacing={10} sx={{ flexGrow: 1, borderColor: red }}>
@@ -123,7 +145,7 @@ function MealDetails(props) {
           <h2>Dinner</h2>
           <p>{mealData[dates[props.selectedDate]].dinner.ingr}</p>
           <TextField label="Money Spent" margin="normal" fullWidth onChange={(event) => setInputValue(event.target.value)} />
-          <Button label="Submit" variant="contained" color="primary" onClick={(event) => { event.preventDefault(); setGroceryTotal(inputValue); }}>Submit</Button>
+          <Button label="Submit" variant="contained" color="primary" onClick={(event) => handleSubmit(event)}>Submit</Button>
         </Grid>
         <Grid item className="Button-Outline" xs={2}>
           <ModeEditOutlineIcon variant="outlined" onClick={() => window.location.href = "/set-meal-plan"}></ModeEditOutlineIcon>

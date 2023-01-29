@@ -89,7 +89,8 @@ function SetMealPlan() {
             var updates = {};
             let data = {
                 "meal_name": mealTitle,
-                "ingr": ingr
+                "ingr": ingr,
+                "cost": 0
             }
             updates["/data/" + week[i]] = data;
             console.log(data);
