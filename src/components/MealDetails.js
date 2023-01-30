@@ -24,36 +24,36 @@ function MealDetails(props) {
     },
     "01-23-2023-1": {
       "breakfast": {
-        "ingr": "FUCK ME Eggo waffles, syrup",
-        "meal_name": "Waffles"
+        "ingr": "Califlower",
+        "meal_name": "Roasted Califlower"
       },
       "dinner": {
-        "ingr": "whole wheat spaghetti, red sauce, parmesean",
-        "meal_name": "Spaghetti"
+        "ingr": "Tomato soup",
+        "meal_name": "Tomato, Basil"
       },
       "lunch": {
-        "ingr": "whole wheat bread, mozzarella, tomatoes, basil, balsamic",
-        "meal_name": "Caprese Sandwich"
+        "ingr": "Tempeh, Dijon Mustard",
+        "meal_name": "Dijon Tempeh Salad"
       }
     },
     "01-24-2023-2": {
       "breakfast": {
-        "ingr": "Eggo waffles, syrup",
-        "meal_name": "Waffles"
+        "ingr": "Patty, Cheddar, Lettuce, Pickles",
+        "meal_name": "In N Out"
       },
       "dinner": {
-        "ingr": "whole wheat spaghetti, red sauce, parmesean",
-        "meal_name": "Spaghetti"
+        "ingr": "Lettuce, Chicken, Parmesan",
+        "meal_name": "Cesar Salad"
       },
       "lunch": {
-        "ingr": "whole wheat bread, mozzarella, tomatoes, basil, balsamic",
-        "meal_name": "Caprese Sandwich"
+        "ingr": "Beef, salt, pepper",
+        "meal_name": "Steak"
       }
     },
     "01-25-2023-3": {
       "breakfast": {
-        "ingr": "Eggo waffles, syrup",
-        "meal_name": "Waffles"
+        "ingr": "Oats, Night",
+        "meal_name": "Overnight Oats"
       },
       "dinner": {
         "ingr": "whole wheat spaghetti, red sauce, parmesean",

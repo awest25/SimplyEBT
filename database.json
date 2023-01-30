@@ -1,0 +1,57 @@
+{
+  "data": {
+    "01-22-2023-0": {
+      "cost": 0,
+      "ingr": [
+        "Banna",
+        "Low-fat milk",
+        "Whole wheat bread",
+        "Orange juice"
+      ],
+      "meal_name": "Bran Flakes Cereal"
+    },
+    "01-23-2023-1": {
+      "cost": 0,
+      "ingr": [
+        "Whole wheat bread",
+        "Dijon mustard",
+        "Cucumber slices",
+        "Tomato wedges"
+      ],
+      "meal_name": "Chicken salad"
+    },
+    "01-24-2023-2": {
+      "cost": 0,
+      "ingr": [
+        "2"
+      ],
+      "meal_name": "tuesday meal"
+    },
+    "01-25-2023-3": {
+      "ingr": [ 
+        "3"
+      ],
+      "meal_name": "wednesday meal"
+    },
+    "01-26-2023-4": {
+      "cost": 65,
+      "ingr": [
+        "4"
+      ],
+      "meal_name": "thursday meal"
+    },
+    "01-27-2023-5": {
+      "cost": 77,
+      "ingr": [
+        "5"
+      ],
+      "meal_name": "friday meal"
+    },
+    "01-28-2023-6": {
+      "ingr": [
+        "6"
+      ],
+      "meal_name": "saturday meal"
+    }
+  }
+}
