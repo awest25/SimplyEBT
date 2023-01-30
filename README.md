@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# About EBTea
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## QWERhacks
+This project was originally created during QWERhacks 2023 for the Food Security track where it won the title "Comeback Baby". It was developed by Alyssa Tadeo, [Alex West](https://github.com/awest25), [Tyler Tran](https://github.com/tylerdtran), and [Colleen Lam](https://github.com/colleenhlam). The Devpost for this hackathon project is available at https://devpost.com/software/ebtea.
 
-## Available Scripts
+## Features
+This web application provides meal and budget planning services to low-income individuals who use the government funded EBT program to purchase food and groceries. Using EBTea, users can:
+* View their weekly meal plan and current budget on their dashboard
+* Create and update their weekly meal plan using the edit page
+* Input grocery expenses which is reflected in their total balance
 
-In the project directory, you can run:
+## Tech Stack
+* React.js
+  * Material UI
+  * React Router
+* Google Firebase
+* GitHub
 
-### `npm start`
+## Future Plans
+Due to the short time frame the project was originally developed under, we weren't able to complete our vision for EBTea. In the future, we plan to implement the following features:
+* EBT and SNAP friendly grocery store and restaurant locator
+* Nutritional analysis tool of a user's grocery list and suggestions on how to improve
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Using EBTea
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Local Hosting
+1. `git clone https://github.com/awest25/qwer-hacks-2023.git`
+2. `cd simply-ebt`
+3. `npm i --force`
+4. `npm start` 
+5. Open [http://localhost:3000](http://localhost:3000) to view EBTea in your browser.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Deploying to Firebase
+1. `cd simply-ebt`
+2. `npm run build`
+3. `firebase deploy`
