@@ -1,7 +1,7 @@
-# About EBTea
+# About SimplyEBT
 
 ## QWERhacks
-This project was originally created during QWERhacks 2023 for the Food Security track where it won the title "Comeback Baby". It was developed by [Alyssa Tadeo](https://github.com/ajtadeo), [Alex West](https://github.com/awest25), [Tyler Tran](https://github.com/tylerdtran), and [Colleen Lam](https://github.com/colleenhlam). The Devpost for this hackathon project is available at https://devpost.com/software/ebtea.
+Originally EBTea, this project was originally created during QWERhacks 2023 for the Food Security track where it won the title "Comeback Baby". It was developed by [Alyssa Tadeo](https://github.com/ajtadeo), [Alex West](https://github.com/awest25), [Tyler Tran](https://github.com/tylerdtran), and [Colleen Lam](https://github.com/colleenhlam). The Devpost for this hackathon project is available at https://devpost.com/software/ebtea.
 
 ## Features
 This web application provides meal and budget planning services to low-income individuals who use the government funded EBT program to purchase food and groceries. Using EBTea, users can:
